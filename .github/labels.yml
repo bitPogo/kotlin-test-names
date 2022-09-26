@@ -4,8 +4,8 @@
 - name: ci
   description: CI/CD
   color: dce775
-- name: build
-  description: build tools
+- name: build.gralde.kts
+  description: build.gralde.kts tools
   color: dce775
 - name: dependencies
   description: Pull requests that update a dependency file
@@ -62,18 +62,6 @@
   color: f5ad42
 
 # Library
-- name: kmock-gradle
-  description: KMock Gradle Plugin
-  color: 000080
-
-- name: kmock-processor
-  description: Stubgenerator
-  color: 000080
-
-- name: kmock
-  description: KMock
-  color: 000080
-
-- name: examples
-  description: Examples
+- name: compiler-plugin
+  description: The Compiler Plugin
   color: 000080

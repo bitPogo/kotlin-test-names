@@ -53,7 +53,7 @@ jobs:
         uses: mikepenz/action-junit-report@v3
         if: failure()
         with:
-          report_paths: '**/build/test-results/**/TEST-*.xml'
+          report_paths: '**/build.gralde.kts/test-results/**/TEST-*.xml'
 
       #- name: Quality Gate
       #  env:

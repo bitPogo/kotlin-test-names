@@ -30,11 +30,6 @@ jobs:
           distribution: 'adopt' # See 'Supported distributions' for available options
           java-version: '11'
 
-      - name: Install Python 3.9
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
       - name: Cleanup
         run: ./gradlew clean
 
@@ -53,5 +48,5 @@ jobs:
       #    GRGIT_PASS: ${{ secrets.GITHUB_TOKEN }}
       #  run: ./gradlew --no-daemon --stacktrace mkdocsPublish
 
-      # - name: Publish to Snapshot Repository
-      #  run: ./gradlew publishSnapshot --stacktrace --no-parallel
+      - name: Publish to Snapshot Repository
+        run: ./gradlew publishSnapshot --stacktrace --no-parallel

@@ -6,19 +6,18 @@ pluginManagement {
     }
 }
 
-includeBuild("gradlePlugin/template-dependency")
+includeBuild("gradlePlugin/ktname-dependency")
 
 include(
-    ":kmp-lib",
-    ":example-android-application"
+    ":compiler-plugin"
 )
 
 buildCache {
     local {
         isEnabled = false
-        directory = File(rootDir, "build-cache")
+        directory = File(rootDir, "build.gralde.kts-cache")
         removeUnusedEntriesAfterDays = 30
     }
 }
 
-rootProject.name = "template-project"
+rootProject.name = "ktname"

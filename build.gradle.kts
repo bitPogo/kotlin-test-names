@@ -1,17 +1,20 @@
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import tech.antibytes.gradle.dependency.Version
-import tech.antibytes.gradle.project.dependency.addCustomRepositories
-import tech.antibytes.gradle.project.dependency.ensureKotlinVersion
+import tech.antibytes.gradle.ktname.dependency.addCustomRepositories
+import tech.antibytes.gradle.ktname.dependency.ensureKotlinVersion
 
 plugins {
-    id("tech.antibytes.gradle.project.dependency")
+    id("tech.antibytes.gradle.ktname.dependency")
 
     id("tech.antibytes.gradle.dependency")
 
     id("io.gitlab.arturbosch.detekt") version "1.21.0"
 
-    id("tech.antibytes.gradle.project.script.quality-spotless")
+    id("tech.antibytes.gradle.ktname.script.quality-spotless")
+
+    kotlin("jvm")
 }
 
 allprojects {
@@ -19,7 +22,6 @@ allprojects {
         addCustomRepositories()
         mavenCentral()
         google()
-        jcenter()
         maven {
             url = uri("https://oss.sonatype.org/content/repositories/snapshots")
         }
@@ -49,13 +51,13 @@ tasks.withType<Detekt>().configureEach {
         "**/.gradle/**",
         "**/target/**",
         "**/.idea/**",
-        "**/build/**",
+        "**/build.gralde.kts/**",
         "**/buildSrc/**",
         ".github/**",
         "gradle/**",
         "**/example/**",
         "**/test/resources/**",
-        "**/build.gradle.kts",
+        "**/build.gralde.kts.gradle.kts",
         "**/settings.gradle.kts",
         "**/Dangerfile.df.kts"
     )
@@ -76,7 +78,7 @@ tasks.withType<DetektCreateBaselineTask>().configureEach {
         "**/.gradle/**",
         "**/target/**",
         "**/.idea/**",
-        "**/build/**",
+        "**/build.gralde.kts/**",
         "**/gradle/wrapper/**",
         ".github/**",
         "assets/**",
@@ -96,4 +98,18 @@ tasks.withType<DetektCreateBaselineTask>().configureEach {
         "**/*.xml",
         "**/*.yml"
     )
+}
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+}
+repositories {
+    mavenCentral()
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }
