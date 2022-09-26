@@ -2,6 +2,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import tech.antibytes.gradle.dependency.Version
+import tech.antibytes.gradle.ktname.config.KTNamePublishingConfiguration
 import tech.antibytes.gradle.ktname.dependency.addCustomRepositories
 import tech.antibytes.gradle.ktname.dependency.ensureKotlinVersion
 
@@ -10,11 +11,18 @@ plugins {
 
     id("tech.antibytes.gradle.dependency")
 
+    id("tech.antibytes.gradle.publishing")
+
     id("io.gitlab.arturbosch.detekt") version "1.21.0"
 
     id("tech.antibytes.gradle.ktname.script.quality-spotless")
 
     kotlin("jvm")
+}
+
+antiBytesPublishing {
+    versioning = KTNamePublishingConfiguration.versioning
+    repositoryConfiguration = KTNamePublishingConfiguration.repositories
 }
 
 allprojects {
