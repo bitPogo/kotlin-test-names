@@ -18,8 +18,5 @@ documentation:
   - SECURITY.md
 
 # Library
-example-android-application:
-  - example-android-application/**/*
-
-kmp-lib:
-  - kmp-lib/**/*
+compiler-plugin:
+  - compiler-plugin/**/*
