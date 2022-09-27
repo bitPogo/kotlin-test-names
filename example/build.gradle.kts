@@ -18,11 +18,7 @@ plugins {
     id("tech.antibytes.gradle.configuration")
     id("tech.antibytes.gradle.coverage")
 
-    id("ktname-test")
-}
-
-ktname {
-
+    // id("ktname-test")
 }
 
 kotlin {

@@ -12,6 +12,9 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinCompilation
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilerPluginSupportPlugin
 import org.jetbrains.kotlin.gradle.plugin.SubpluginArtifact
 import org.jetbrains.kotlin.gradle.plugin.SubpluginOption
+import tech.antibytes.ktname.KTNameContract.COMPILE_TASK_ANDROID_SUFFIX
+import tech.antibytes.ktname.KTNameContract.COMPILE_TASK_JS
+import tech.antibytes.ktname.KTNameContract.COMPILE_TASK_PREFIX
 import tech.antibytes.ktname.KTNameContract.USE_ANDROID
 import tech.antibytes.ktname.KTNameContract.USE_JS
 import tech.antibytes.ktname.config.MainConfig
@@ -54,19 +57,19 @@ class KTNameCompilerPlugin : KotlinCompilerPluginSupportPlugin {
         )
     }
 
-    private fun KotlinCompilation<*>.isJsTestTarget(): Boolean {
-        return name.startsWith("compileTest")
+    private fun KotlinCompilation<*>.isApplicableForJs(): Boolean {
+        return ktnameExtension.enableForJsTests && compileKotlinTaskName == COMPILE_TASK_JS
     }
 
-    private fun isApplicableForJs(
-        compilationTarget: KotlinCompilation<*>,
-    ): Boolean = compilationTarget.ktnameExtension.enableForJsTests
+    private fun String.isInstrumentedAndroidTarget(): Boolean {
+        return startsWith(COMPILE_TASK_PREFIX) && endsWith(COMPILE_TASK_ANDROID_SUFFIX)
+    }
+
+    private fun KotlinCompilation<*>.isApplicableForAndroid(): Boolean {
+        return ktnameExtension.enableForInstrumentedAndroidTests && compileKotlinTaskName.isInstrumentedAndroidTarget()
+    }
 
     override fun isApplicable(
         kotlinCompilation: KotlinCompilation<*>,
-    ): Boolean {
-        return when {
-            else -> false
-        }
-    }
+    ): Boolean = kotlinCompilation.isApplicableForJs() || kotlinCompilation.isApplicableForAndroid()
 }

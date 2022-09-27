@@ -21,4 +21,7 @@ object KTNameContract {
 
     internal const val USE_ANDROID = "android"
     internal const val USE_JS = "js"
+    internal const val COMPILE_TASK_JS = "compileTestKotlinJs"
+    internal const val COMPILE_TASK_PREFIX = "compile"
+    internal const val COMPILE_TASK_ANDROID_SUFFIX = "AndroidTestKotlinAndroid"
 }

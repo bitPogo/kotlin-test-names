@@ -7,7 +7,6 @@ pluginManagement {
     includeBuild("gradlePlugin/test-plugin")
 }
 
-
 includeBuild("gradlePlugin/ktname-dependency")
 
 include(

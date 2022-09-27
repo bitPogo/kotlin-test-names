@@ -65,3 +65,7 @@
 - name: compiler-plugin
   description: The Compiler Plugin
   color: 000080
+
+- name: example
+  description: Example Project
+  color: 000080

@@ -129,7 +129,20 @@ class KTNameCompilerPluginSpec {
     @Test
     fun `Given isApplicable is called it return false by default`() {
         // Given
+        val project: Project = mockk()
+        val extension: KTNameExtension = mockk()
         val sourceSet: KotlinCompilation<*> = mockk()
+
+        val taskName = "none"
+
+        every { sourceSet.target.project } returns project
+        every {
+            project.extensions.getByType(KTNameExtension::class.java)
+        } returns extension
+
+        every { extension.enableForJsTests } returns true
+        every { extension.enableForInstrumentedAndroidTests } returns false
+        every { sourceSet.compileKotlinTaskName } returns taskName
 
         // When
         val isApplicable = KTNameCompilerPlugin().isApplicable(sourceSet)
@@ -141,7 +154,20 @@ class KTNameCompilerPluginSpec {
     @Test
     fun `Given isApplicable is called it return false if the CompilationTarget is JS and the the Extension JS field is set to false`() {
         // Given
+        val project: Project = mockk()
+        val extension: KTNameExtension = mockk()
         val sourceSet: KotlinCompilation<*> = mockk()
+
+        val taskName = "compileTestKotlinJs"
+
+        every { sourceSet.target.project } returns project
+        every {
+            project.extensions.getByType(KTNameExtension::class.java)
+        } returns extension
+
+        every { extension.enableForJsTests } returns false
+        every { extension.enableForInstrumentedAndroidTests } returns false
+        every { sourceSet.compileKotlinTaskName } returns taskName
 
         // When
         val isApplicable = KTNameCompilerPlugin().isApplicable(sourceSet)
@@ -153,7 +179,70 @@ class KTNameCompilerPluginSpec {
     @Test
     fun `Given isApplicable is called it return true if the CompilationTarget is JS and the the Extension JS field is set to true`() {
         // Given
+        val project: Project = mockk()
+        val extension: KTNameExtension = mockk()
         val sourceSet: KotlinCompilation<*> = mockk()
+
+        val taskName = "compileTestKotlinJs"
+
+        every { sourceSet.target.project } returns project
+        every {
+            project.extensions.getByType(KTNameExtension::class.java)
+        } returns extension
+
+        every { extension.enableForJsTests } returns true
+        every { extension.enableForInstrumentedAndroidTests } returns false
+        every { sourceSet.compileKotlinTaskName } returns taskName
+
+        // When
+        val isApplicable = KTNameCompilerPlugin().isApplicable(sourceSet)
+
+        // Then
+        assertTrue(isApplicable)
+    }
+
+    @Test
+    fun `Given isApplicable is called it return false if the CompilationTarget is Android and the the Extension Android field is set to false`() {
+        // Given
+        val project: Project = mockk()
+        val extension: KTNameExtension = mockk()
+        val sourceSet: KotlinCompilation<*> = mockk()
+
+        val taskName = "compileDebugAndroidTestKotlinAndroid"
+
+        every { sourceSet.target.project } returns project
+        every {
+            project.extensions.getByType(KTNameExtension::class.java)
+        } returns extension
+
+        every { extension.enableForJsTests } returns false
+        every { extension.enableForInstrumentedAndroidTests } returns false
+        every { sourceSet.compileKotlinTaskName } returns taskName
+
+        // When
+        val isApplicable = KTNameCompilerPlugin().isApplicable(sourceSet)
+
+        // Then
+        assertFalse(isApplicable)
+    }
+
+    @Test
+    fun `Given isApplicable is called it return true if the CompilationTarget is Android and the the Extension Android field is set to true`() {
+        // Given
+        val project: Project = mockk()
+        val extension: KTNameExtension = mockk()
+        val sourceSet: KotlinCompilation<*> = mockk()
+
+        val taskName = "compileStagingAndroidTestKotlinAndroid"
+
+        every { sourceSet.target.project } returns project
+        every {
+            project.extensions.getByType(KTNameExtension::class.java)
+        } returns extension
+
+        every { extension.enableForJsTests } returns true
+        every { extension.enableForInstrumentedAndroidTests } returns true
+        every { sourceSet.compileKotlinTaskName } returns taskName
 
         // When
         val isApplicable = KTNameCompilerPlugin().isApplicable(sourceSet)
