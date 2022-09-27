@@ -7,14 +7,14 @@
 package tech.antibytes.ktname
 
 import io.mockk.mockk
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
 import org.jetbrains.kotlin.compiler.plugin.CliOption
 import org.jetbrains.kotlin.compiler.plugin.CommandLineProcessor
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFailsWith
-import kotlin.test.assertTrue
 
 class KTNameCLIProcessorSpec {
     @Test
@@ -28,7 +28,7 @@ class KTNameCLIProcessorSpec {
     fun `It has a id`() {
         assertEquals(
             actual = KTNameCLIProcessor().pluginId,
-            expected = "tech.antibytes.ktname.compiler-plugin"
+            expected = "tech.antibytes.ktname.compiler-plugin",
         )
     }
 
@@ -36,7 +36,7 @@ class KTNameCLIProcessorSpec {
     fun `It has no cli options`() {
         assertEquals(
             actual = KTNameCLIProcessor().pluginOptions,
-            expected = emptyList()
+            expected = emptyList(),
         )
     }
 
@@ -48,7 +48,7 @@ class KTNameCLIProcessorSpec {
             description = "Enables/Disables classes to opened for testing",
             valueDescription = "boolean",
             required = false,
-            allowMultipleOccurrences = false
+            allowMultipleOccurrences = false,
         )
         val config: CompilerConfiguration = mockk()
 
@@ -58,13 +58,13 @@ class KTNameCLIProcessorSpec {
             KTNameCLIProcessor().processOption(
                 option,
                 "something",
-                config
+                config,
             )
         }
 
         assertEquals(
             actual = error.message,
-            expected = "Unknown config option ${option.optionName}"
+            expected = "Unknown config option ${option.optionName}",
         )
     }
 }

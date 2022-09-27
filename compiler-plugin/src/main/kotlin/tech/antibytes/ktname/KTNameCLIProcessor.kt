@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.compiler.plugin.CommandLineProcessor
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import tech.antibytes.ktname.config.MainConfig
 
-class KTNameCLIProcessor : CommandLineProcessor {
+internal class KTNameCLIProcessor : CommandLineProcessor {
     override val pluginId: String = MainConfig.pluginId
     override val pluginOptions: Collection<AbstractCliOption> = emptyList()
 
