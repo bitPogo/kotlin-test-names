@@ -18,4 +18,7 @@ object KTNameContract {
          */
         var enableForInstrumentedAndroidTests: Boolean
     }
+
+    internal const val USE_ANDROID = "android"
+    internal const val USE_JS = "js"
 }

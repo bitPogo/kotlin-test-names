@@ -4,16 +4,10 @@ pluginManagement {
         google()
         mavenCentral()
     }
-    includeBuild("gradlePlugin/test-plugin")
 }
 
-
-includeBuild("gradlePlugin/ktname-dependency")
-
-include(
-    ":compiler-plugin",
-    ":example"
-)
+includeBuild("ktname-test-dependency")
+include("plugin")
 
 buildCache {
     local {
@@ -23,4 +17,4 @@ buildCache {
     }
 }
 
-rootProject.name = "ktname"
+rootProject.name = "test-plugin"

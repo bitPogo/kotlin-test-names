@@ -25,4 +25,5 @@ dependencies {
     implementation(Dependency.gradle.spotless)
     implementation(Dependency.gradle.publishing)
     implementation(Dependency.gradle.runtimeConfig)
+    implementation(Dependency.gradle.projectConfig)
 }

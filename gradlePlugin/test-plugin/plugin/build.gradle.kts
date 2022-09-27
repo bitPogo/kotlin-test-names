@@ -8,22 +8,10 @@ import tech.antibytes.gradle.dependency.Dependency
 import tech.antibytes.gradle.ktname.dependency.Dependency as LocalDependency
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import tech.antibytes.gradle.configuration.runtime.AntiBytesMainConfigurationTask
-import tech.antibytes.gradle.ktname.config.KTNameCompilerPluginConfiguration
 
 plugins {
     `kotlin-dsl`
     `java-gradle-plugin`
-
-    id("tech.antibytes.gradle.publishing")
-    id("tech.antibytes.gradle.coverage")
-}
-
-group = KTNameCompilerPluginConfiguration.group
-
-antiBytesPublishing {
-    packageConfiguration = KTNameCompilerPluginConfiguration.publishing.packageConfiguration
-    repositoryConfiguration = KTNameCompilerPluginConfiguration.publishing.repositories
-    versioning = KTNameCompilerPluginConfiguration.publishing.versioning
 }
 
 dependencies {
@@ -51,10 +39,10 @@ afterEvaluate {
         packageName.set("tech.antibytes.ktname.config")
         stringFields.set(
             mapOf(
-                "version" to project.version as String,
-                "group" to KTNameCompilerPluginConfiguration.group,
-                "artifactId" to KTNameCompilerPluginConfiguration.id,
-                "pluginId" to KTNameCompilerPluginConfiguration.pluginId,
+                "version" to "0.0.0",
+                "group" to "test",
+                "artifactId" to "ktname",
+                "pluginId" to "test.ktname",
             )
         )
     }
@@ -72,12 +60,9 @@ kotlin {
 }
 
 gradlePlugin {
-    plugins.register(KTNameCompilerPluginConfiguration.pluginId) {
-        group = KTNameCompilerPluginConfiguration.group
-        id = KTNameCompilerPluginConfiguration.pluginId
+    plugins.register("ktname-test") {
         implementationClass = "tech.antibytes.ktname.KTNameCompilerPlugin"
-        displayName = "${id}.gradle.plugin"
-        description = "KTName Compiler Plugin"
-        version = project.version
+        id = "ktname-test"
+        version = "0.0.0"
     }
 }

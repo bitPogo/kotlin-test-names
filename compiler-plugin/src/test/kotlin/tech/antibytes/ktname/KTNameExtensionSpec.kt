@@ -6,9 +6,9 @@
 
 package tech.antibytes.ktname
 
-import org.junit.jupiter.api.Test
-import kotlin.test.assertTrue
 import kotlin.test.assertFalse
+import kotlin.test.assertTrue
+import org.junit.jupiter.api.Test
 import tech.antibytes.gradle.test.createExtension
 
 class KTNameExtensionSpec {

@@ -1,6 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import tech.antibytes.gradle.dependency.Version
 import tech.antibytes.gradle.ktname.config.KTNamePublishingConfiguration
 import tech.antibytes.gradle.ktname.dependency.addCustomRepositories
@@ -30,6 +29,7 @@ allprojects {
         addCustomRepositories()
         mavenCentral()
         google()
+        jcenter()
         maven {
             url = uri("https://oss.sonatype.org/content/repositories/snapshots")
         }
@@ -106,18 +106,4 @@ tasks.withType<DetektCreateBaselineTask>().configureEach {
         "**/*.xml",
         "**/*.yml"
     )
-}
-dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-}
-repositories {
-    mavenCentral()
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
 }
