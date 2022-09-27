@@ -34,6 +34,7 @@ dependencies {
     testImplementation(Dependency.jvm.test.jupiter)
     testImplementation(Dependency.jvm.test.mockk.unit)
     testImplementation(Dependency.jvm.test.kotlin)
+    testImplementation(LocalDependency.antibytes.test.gradle)
 }
 
 java {
