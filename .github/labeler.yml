@@ -20,3 +20,6 @@ documentation:
 # Library
 compiler-plugin:
   - compiler-plugin/**/*
+
+example:
+  - example/**/*

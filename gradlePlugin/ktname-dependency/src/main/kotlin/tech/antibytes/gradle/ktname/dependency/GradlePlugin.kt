@@ -12,4 +12,5 @@ object GradlePlugin {
     const val coverage = "tech.antibytes.gradle-plugins:antibytes-coverage:${Version.Gradle.antibytes}"
     const val spotless = "com.diffplug.spotless:spotless-plugin-gradle:${Version.Gradle.spotless}"
     const val runtimeConfig = "tech.antibytes.gradle-plugins:antibytes-runtime-configuration:${Version.gradle.antibytes}"
+    const val projectConfig = "tech.antibytes.gradle-plugins:antibytes-configuration:${Version.gradle.antibytes}"
 }
