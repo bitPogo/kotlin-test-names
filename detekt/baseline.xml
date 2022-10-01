@@ -2,6 +2,7 @@
 <SmellBaseline>
   <ManuallySuppressedIssues></ManuallySuppressedIssues>
   <CurrentIssues>
+    <ID>EmptyFunctionBlock:KTNameRegistration.kt$KTNameRegistration${ }</ID>
     <ID>EmptyKtFile:settings.gradle.kts$.settings.gradle.kts</ID>
     <ID>FunctionNaming:Accessors33qjl5yednlyp9tyvd6yykvt5.kt$internal fun org.gradle.api.plugins.BasePluginExtension.`ext`(configure: Action&lt;org.gradle.api.plugins.ExtraPropertiesExtension&gt;): Unit</ID>
     <ID>FunctionNaming:Accessors365te60wp7h43wszbvbl7a76x.kt$internal fun org.gradle.api.Project.`spotless`(configure: Action&lt;com.diffplug.gradle.spotless.SpotlessExtension&gt;): Unit</ID>
@@ -85,7 +86,7 @@
     <ID>PackageNaming:Accessorsed7e04c18w9g7176u3w1ie44j.kt$package gradle.kotlin.dsl.accessors._01a7fddcf81aa279b379d6fe3cb64505</ID>
     <ID>PackageNaming:ArchivesConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._01a7fddcf81aa279b379d6fe3cb64505</ID>
     <ID>PackageNaming:DefaultConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._01a7fddcf81aa279b379d6fe3cb64505</ID>
-    <ID>PackageNaming:PluginSpecBuilders.kt$package gradle.kotlin.dsl.plugins._c7fb1427da39b554bf68a8d201755f9b</ID>
+    <ID>PackageNaming:PluginSpecBuilders.kt$package gradle.kotlin.dsl.plugins._ad0cf9e0dd59c660404b82c9f58b1f6c</ID>
     <ID>SwallowedException:QualitySpotlessPlugin.kt$QualitySpotlessPlugin$e: java.lang.reflect.InvocationTargetException</ID>
     <ID>TopLevelPropertyNaming:Accessors16h8i8yvcoyu6adqodek0vazl.kt$/** * Provides the existing [build][org.gradle.api.DefaultTask] task. */ internal val TaskContainer.`build`: TaskProvider&lt;org.gradle.api.DefaultTask&gt; get() = named&lt;org.gradle.api.DefaultTask&gt;("build")</ID>
     <ID>TopLevelPropertyNaming:Accessors1rjydc5cf7y0f6xd8ou20m2o4.kt$/** * Provides the existing [spotlessDiagnose][org.gradle.api.DefaultTask] task. */ internal val TaskContainer.`spotlessDiagnose`: TaskProvider&lt;org.gradle.api.DefaultTask&gt; get() = named&lt;org.gradle.api.DefaultTask&gt;("spotlessDiagnose")</ID>
@@ -195,11 +196,10 @@
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.wrapper` plugin implemented by [org.gradle.buildinit.plugins.WrapperPlugin]. */ internal val `OrgGradlePluginGroup`.`wrapper`: PluginDependencySpec get() = plugins.id("org.gradle.wrapper")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.xcode` plugin implemented by [org.gradle.ide.xcode.plugins.XcodePlugin]. */ internal val `OrgGradlePluginGroup`.`xcode`: PluginDependencySpec get() = plugins.id("org.gradle.xcode")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.xctest` plugin implemented by [org.gradle.nativeplatform.test.xctest.plugins.XCTestConventionPlugin]. */ internal val `OrgGradlePluginGroup`.`xctest`: PluginDependencySpec get() = plugins.id("org.gradle.xctest")</ID>
+    <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `tech.antibytes.gradle.configuration` plugin implemented by [tech.antibytes.gradle.configuration.AntiBytesConfiguration]. */ internal val `TechAntibytesGradlePluginGroup`.`configuration`: PluginDependencySpec get() = plugins.id("tech.antibytes.gradle.configuration")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `tech.antibytes.gradle.coverage` plugin implemented by [tech.antibytes.gradle.coverage.AntiBytesCoverage]. */ internal val `TechAntibytesGradlePluginGroup`.`coverage`: PluginDependencySpec get() = plugins.id("tech.antibytes.gradle.coverage")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `tech.antibytes.gradle.dependency` plugin implemented by [tech.antibytes.gradle.dependency.AntiBytesDependency]. */ internal val `TechAntibytesGradlePluginGroup`.`dependency`: PluginDependencySpec get() = plugins.id("tech.antibytes.gradle.dependency")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `tech.antibytes.gradle.publishing` plugin implemented by [tech.antibytes.gradle.publishing.AntiBytesPublishing]. */ internal val `TechAntibytesGradlePluginGroup`.`publishing`: PluginDependencySpec get() = plugins.id("tech.antibytes.gradle.publishing")</ID>
-    <ID>UnusedPrivateMember:KTNameCompilerPlugin.kt$KTNameCompilerPlugin$private fun KotlinCompilation&lt;*&gt;.isJsTestTarget(): Boolean</ID>
-    <ID>UnusedPrivateMember:KTNameCompilerPlugin.kt$KTNameCompilerPlugin$private fun isApplicableForJs( compilationTarget: KotlinCompilation&lt;*&gt;, ): Boolean</ID>
     <ID>WildcardImport:Accessors16h8i8yvcoyu6adqodek0vazl.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>WildcardImport:Accessors16h8i8yvcoyu6adqodek0vazl.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
     <ID>WildcardImport:Accessors1rjydc5cf7y0f6xd8ou20m2o4.kt$import org.gradle.kotlin.dsl.*</ID>
